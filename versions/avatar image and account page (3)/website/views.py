@@ -1,6 +1,11 @@
+import os
+from pathlib import Path
+from PIL import Image
+import secrets
 from flask import Blueprint, render_template, request, flash, redirect, url_for, jsonify
 from flask_login import current_user, login_required
 from .models import Post, User, Like, Comment
+from .forms import UpdateAccountForm, RegistrationForm
 from . import db
 
 views = Blueprint("views", __name__)
@@ -101,3 +106,35 @@ def delete_comment(comment_id):
         db.session.commit()
 
     return redirect(url_for('views.blog'))
+
+def save_picture(form_picture):
+    # note to future denz: ALL FUTURE ITERATIONS OF QUITO BLOG MUST HAVE ITS OWN PATH
+    path = Path("versions/avatar image and account page (3)\website\static\profile_pics")
+    random_hex = secrets.token_hex(8)
+    _,f_ext = os.path.splitext(form_picture.filename)
+    picture_fn = random_hex + f_ext
+    picture_path = os.path.join(path, picture_fn)
+    output_size = (125, 125)
+    i = Image.open(form_picture)
+    i.thumbnail(output_size)
+    i.save(picture_path)
+    return picture_fn
+    
+@views.route("/account", methods=['GET', 'POST'])
+@login_required
+def account():
+    form = UpdateAccountForm()
+    if form.validate_on_submit():
+        if form.picture.data:
+            picture_file = save_picture(form.picture.data)
+            current_user.image_file = picture_file
+        current_user.username = form.username.data
+        current_user.email = form.email.data
+        db.session.commit()
+        flash('Your account has been updated!')
+        return redirect(url_for('views.account'))
+    elif request.method == 'GET':
+        form.username.data = current_user.username
+        form.email.data  = current_user.email
+    image_file = url_for('static', filename = 'profile_pics/' + current_user.image_file)
+    return render_template('account.html', user = current_user, image_file = image_file, form = form)
