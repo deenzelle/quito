@@ -46,8 +46,10 @@ def posts(username):
         flash('No user with that username exists.', category='error')
         return redirect(url_for('views.home'))
     
-    posts = Post.query.filter_by(author=user.id).all()
+    page = request.args.get('page', 1, type=int)
+    posts = Post.query.filter_by(author=user.id).paginate(page=page, per_page=4)
     return render_template("posts.html", user=current_user, posts=posts, username=username)
+
 
 @views.route("/delete-post/<id>")
 @login_required
