@@ -1,7 +1,5 @@
 {% extends "template.html" %}{% block title %}Home{% endblock %}
 {% block content %}
-<!-- generic css -->
-<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 <h1 align="center">{% block header %}Posts{% endblock %}</h1>
 <div id="posts">
     {% for post in posts %}
@@ -42,8 +40,6 @@
             </div>
         </div>
         <div class="card-body">
-            <div class="card-text post-title">{{post.title}}</div>
-            <br>
             <div class="card-text">{{post.text}}</div>
             <br/>
             <div class="collapse" id="comments-{{post.id}}">
@@ -125,6 +121,5 @@
 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
 crossorigin="anonymous">
 </script>
-<br>
 {% endblock %}
 {% endblock %}
