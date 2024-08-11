@@ -1,7 +1,5 @@
 {% extends "template.html" %}{% block title %}Home{% endblock %}
 {% block content %}
-<!-- generic css -->
-<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 <h1 align="center">{% block header %}Posts{% endblock %}</h1>
 <div id="posts">
     {% for post in posts %}
@@ -42,6 +40,8 @@
             </div>
         </div>
         <div class="card-body">
+            <div class="card-text post-title">{{post.title}}</div>
+            <br>
             <div class="card-text">{{post.text}}</div>
             <br/>
             <div class="collapse" id="comments-{{post.id}}">
@@ -109,6 +109,20 @@
     <br/> 
     {% endfor %}
 </div>
+
+{% for page_num in posts.iter_pages(left_edge = 1, right_edge = 1, left_current = 1, right_current = 2) %}
+{% if page_num %}
+    {% if posts.page == page_num %}
+        <a class = "btn btn-outline-info mb-4" href = "{{ url_for('views.blog', page = page_num) }}">{{ page_num }}</a>
+    {% else %}
+        <a class = "btn btn-outline-info mb-4" href = "{{ url_for('views.blog', page = page_num) }}">{{ page_num }}</a>
+    
+    {% endif %}
+{% else %}
+        ... 
+{% endif %}
+{% endfor %}
+
 
 {% block footer %}
 <br/>

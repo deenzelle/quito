@@ -5,7 +5,7 @@ import secrets
 from flask import Blueprint, render_template, request, flash, redirect, url_for, jsonify
 from flask_login import current_user, login_required
 from .models import Post, User, Like, Comment
-from .forms import UpdateAccountForm, RegistrationForm
+from .forms import UpdateAccountForm, RegistrationForm, PostForm
 from . import db
 
 views = Blueprint("views", __name__)
@@ -18,23 +18,25 @@ def home():
 @views.route("/blog")
 @login_required
 def blog():
-    posts = Post.query.all()
+    #posts = Post.query.all()
+    page = request.args.get('page', 1, type = int)
+    posts = Post.query.order_by(Post.date_created.desc()).paginate(page=page, per_page = 4)
     return render_template("blog.html", user=current_user, posts=posts)
 
 @views.route("/create-post", methods=['GET', 'POST'])
 @login_required
 def create_post():
-    if request.method == "POST":
-        text = request.form.get('text')
-        if not text:
-            flash('Post cannot be empty', category='error')
-        else:
-            post= Post(text=text, author=current_user.id)
-            db.session.add(post)
-            db.session.commit()
-            flash('Post created!', category='success')
-            return redirect(url_for('views.blog'))
-    return render_template('create_post.html', user=current_user)
+    form = PostForm()
+    if form.validate_on_submit():
+        title = form.title.data
+        text = form.text.data
+        post = Post(title=title, text=text, author=current_user.id)
+        db.session.add(post)
+        db.session.commit()
+        flash('Post created!', category='success')
+        return redirect(url_for('views.blog'))
+
+    return render_template('create_post.html', form = form, user=current_user)
 
 @views.route("/posts/<username>")
 @login_required
@@ -109,7 +111,7 @@ def delete_comment(comment_id):
 
 def save_picture(form_picture):
     # note to future denz: ALL FUTURE ITERATIONS OF QUITO BLOG MUST HAVE ITS OWN PATH
-    path = Path("versions/avatar image and account page (3)\website\static\profile_pics")
+    path = Path("versions\making a title field for posts (4)\website\static\profile_pics")
     random_hex = secrets.token_hex(8)
     _,f_ext = os.path.splitext(form_picture.filename)
     picture_fn = random_hex + f_ext
