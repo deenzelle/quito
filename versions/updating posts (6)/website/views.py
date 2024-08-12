@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from PIL import Image
 import secrets
-from flask import Blueprint, render_template, request, flash, redirect, url_for, jsonify
+from flask import Blueprint, render_template, request, abort, flash, redirect, url_for, jsonify
 from flask_login import current_user, login_required
 from .models import Post, User, Like, Comment
 from .forms import UpdateAccountForm, RegistrationForm, PostForm
@@ -18,9 +18,7 @@ def home():
 @views.route("/blog")
 @login_required
 def blog():
-    #posts = Post.query.all()
-    page = request.args.get('page', 1, type = int)
-    posts = Post.query.order_by(Post.date_created.desc()).paginate(page=page, per_page = 4)
+    posts = Post.query.all()
     return render_template("blog.html", user=current_user, posts=posts)
 
 @views.route("/create-post", methods=['GET', 'POST'])
@@ -140,3 +138,23 @@ def account():
         form.email.data  = current_user.email
     image_file = url_for('static', filename = 'profile_pics/' + current_user.image_file)
     return render_template('account.html', user = current_user, image_file = image_file, form = form)
+
+@views.route("/update-post/<id>", methods=['GET', 'POST'])
+@login_required
+def update_post(id):
+    post = Post.query.filter_by(id=id).first()
+    if post.author != current_user.id:
+        abort(403)
+    form = PostForm()
+    if form.validate_on_submit():
+        post.title = form.title.data
+        post.text = form.text.data
+        db.session.commit()
+        flash('Your Post Has Been Updated!', category='success')
+        return redirect(url_for('views.blog'))
+    elif request.method == 'GET':
+        form.title.data = post.title
+        form.text.data = post.text
+        image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+
+    return render_template('update_post.html', form = form, user=current_user, post=post, image_file=image_file)
