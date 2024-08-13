@@ -1,54 +1,46 @@
 {% extends "template.html" %}{% block title %}Home{% endblock %}
 {% block content %}
-<h1>Home</h1>
-
-        <!-- Content section 1-->
-        <section id="scroll">
-            <div class="container px-5">
-                <div class="row gx-5 align-items-center">
-                    <div class="col-lg-6 order-lg-2">
-                        <div class="p-5"><img class="img-fluid rounded-circle" src="static/assets/img/01.jpg" alt="..." /></div>
-                    </div>
-                    <div class="col-lg-6 order-lg-1">
-                        <div class="p-5">
-                            <h2 class="display-4">wompus compus</h2>
-                            <p>womp womp</p>
-                        </div>
-                    </div>
-                </div>
+<!-- generic css -->
+<link rel="stylesheet" href="static/css/styles2.css">
+<!-- Header - set the background image for the header in the line below-->
+<header class="py-5 bg-image-full" style="background-image: url('https://lh3.googleusercontent.com/pw/AP1GczPfSZ-Nzk_mO5w5EAH2B3LqpLaSHlfaucqw_Pvk6qWdbr8tDAytEZECKSukLRkn19pPGrwPtn66AxC9g9Ljl329I5Jmpz6UPwoQRNYk-mrZRdjGLT7GQlvxGNf4ezOWIsHZZ8_TB1UJ1KQFdP_h3ZaRqg=w500-h281-s-no-gm?authuser=0')">
+    <div class="text-center my-5">
+        <img class="img-fluid rounded-circle mb-4" src="https://dummyimage.com/150x150/6c757d/dee2e6.jpg" alt="..." />
+        <h1 class="text-white fs-3 fw-bolder">Full Width Pics</h1>
+        <p class="text-white-50 mb-0">Landing Page Template</p>
+    </div>
+</header>
+<!-- Content section-->
+<section class="py-5">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <h2>Full Width Backgrounds</h2>
+                <p class="lead">A single, lightweight helper class allows you to add engaging, full width background images to sections of your page.</p>
+                <p class="mb-0">The universe is almost 14 billion years old, and, wow! Life had no problem starting here on Earth! I think it would be inexcusably egocentric of us to suggest that we're alone in the universe.</p>
             </div>
-        </section>
-        <!-- Content section 2-->
-        <section>
-            <div class="container px-5">
-                <div class="row gx-5 align-items-center">
-                    <div class="col-lg-6">
-                        <div class="p-5"><img class="img-fluid rounded-circle" src="static/assets/img/02.jpg" alt="..." /></div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="p-5">
-                            <h2 class="display-4">easy</h2>
-                            <p>ez easy make it look easy</p>
-                        </div>
-                    </div>
-                </div>
+        </div>
+    </div>
+</section>
+<!-- Image element - set the background image for the header in the line below-->
+<div class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/4ulffa6qoKA/1200x800')">
+    <!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
+    <div style="height: 20rem"></div>
+</div>
+<!-- Content section-->
+<section class="py-5">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <h2>Engaging Background Images</h2>
+                <p class="lead">The background images used in this template are sourced from Unsplash and are open source and free to use.</p>
+                <p class="mb-0">I can't tell you how many people say they were turned off from science because of a science teacher that completely sucked out all the inspiration and enthusiasm they had for the course.</p>
             </div>
-        </section>
-        <!-- Content section 3-->
-        <section>
-            <div class="container px-5">
-                <div class="row gx-5 align-items-center">
-                    <div class="col-lg-6 order-lg-2">
-                        <div class="p-5"><img class="img-fluid rounded-circle" src="static/assets/img/03.jpg" alt="..." /></div>
-                    </div>
-                    <div class="col-lg-6 order-lg-1">
-                        <div class="p-5">
-                            <h2 class="display-4">wucha</h2>
-                            <p>expelliarmus</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        </div>
+    </div>
+</section>
+<!-- Footer-->
+<footer class="py-5 bg-dark">
+    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+</footer>
 {% endblock %}
