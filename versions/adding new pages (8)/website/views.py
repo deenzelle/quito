@@ -15,6 +15,11 @@ views = Blueprint("views", __name__)
 def home():
     return render_template("home.html", user=current_user)
 
+@views.route("/")
+@views.route("/recommendations")
+def locations():
+    return render_template("recommendations.html", user=current_user)
+
 @views.route("/blog")
 @login_required
 def blog():
