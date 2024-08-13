@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<!--Title of the page that shows up in the tablist-->
+	<title>Deez Balls | Home</title>
+	<!--favicon icon so that there is an icon in the browser tablist-->
+	<link rel="icon" type="images/x-icon" href="images/assets/favicon.png">
+	<!--Bootstrap 4 integration into HTML-->
+    	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+	<!-- Popper JS -->
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+	<!--Link to a personal stylesheet-->
+	<link rel="stylesheet" href="stylesheet.css">
+	<!-- Imported fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+	</head>
+
+<body>
+<div class="container">
+<!-- A light horizontal navbar that includes a space deicated to a websites logo and becomes vertical on small screens -->
+	<nav class="navbar navbar-expand-sm bg-white navbar-light sticky-top">
+	<!--Brand/Logo-->
+	<a class="navbar-brand" href="index.html">
+	 <img src="images/assets/logo.png" alt="Logos">
+   </a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="orders.html">Orders</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="useful.html">Useful Links</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!--Heading on index-->
+<h1 id="thiccheadings">Welcome to 'Bofa' Deez Balls</h1>
+
+<!--Carousel-->
+<div class="row">
+	<div class="col">
+		<div id="demo" class="carousel slide" data-ride="carousel">
+
+			<!-- Indicators -->
+			<ul class="carousel-indicators">
+			  <li data-target="#demo" data-slide-to="0" class="active"></li>
+			  <li data-target="#demo" data-slide-to="1"></li>
+			  <li data-target="#demo" data-slide-to="2"></li>
+			  <li data-target="#demo" data-slide-to="3"></li>
+			</ul>
+			<!-- The slideshow -->
+			<div class="carousel-inner">
+			  <div class="carousel-item active">
+				<img src="images/boba/boba_colourful_straws.jpg" alt="Boba with colourful straws">
+					<div class="carousel-caption">
+						<h3>Boba with Orange, Blue and Yellow Straws</h3>
+						<p>Colorful drink with fun straws.</p>
+				  	</div>
+			  </div>
+			  <div class="carousel-item"> <!--content for one carousel item-->
+				<img src="images/boba/boba_pob.jpg" alt="Pink, Orange and Blue Boba">
+					<div class="carousel-caption">
+						<h3>Red, Orange and Blue flavoured Boba</h3>
+						<p>Colorful boba with fruity flavors.</p>
+				  	</div>
+			  </div>
+			  <div class="carousel-item"> <!--content for one carousel item-->
+				<img src="images/boba/colour_boba.jpg" alt="Colourful Boba">
+					<div class="carousel-caption">
+						<h3>Pink, Green, Yellow and Blue Boba</h3>
+						<p>An aesthetic representation of diversity.</p>
+				 	 </div>
+			  </div>
+			  <div class="carousel-item"> <!--content for one carousel item-->
+				<img src="images/boba/taroboba.jpg" alt="Taro Boba">
+					<div class="carousel-caption">
+						<h3>Purple Taro Milk Tea</h3>
+						<p>A royal potion, distilled essence.</p>
+				  	</div>
+			  </div>
+			</div>
+			<!-- Left and right controls -->
+			<a
+				class="carousel-control-prev" href="#demo" data-slide="prev">
+			  	<span class="carousel-control-prev-icon"></span>
+			</a>
+			<a class="carousel-control-next" href="#demo" data-slide="next">
+			  <span class="carousel-control-next-icon"></span>
+			</a>
+		  </div>
+	</div>
+</div> <!--closing div for carousel-->
+
+<br>
+
+<!--Subheading-->
+<h2 id="subheadings">What is Bubble Tea?</h2>
+
+<!--Body text in my site-->
+<div class="bodytext">
+	<p id="bodytextid">Bubble tea is a delicious and unique drink that's loved by people of all ages. Imagine sipping on a refreshing and creamy tea-based drink that's bursting
+	with fruity or floral flavors, while enjoying the chewy texture of tapioca pearls or the refreshing crunch of fruit jelly. Bubble tea is a fun and satisfying
+	way to treat yourself and try something new. With so many flavor combinations to choose from, you're sure to find a combination that suits your taste buds
+	perfectly. This site will be your cheatsheet into falling in love with Boba as we show you the different popular drinks and the secret bubble tea orders the celebrities
+	don't want you to know!</p>
+</div> <!--closing div for body text-->
+
+<br>
+
+<script> <!--javascript necessary for popovers to work-->
+	$(document).ready(function(){
+		$('[data-toggle="popover"]').popover();
+	});
+</script>
+
+<!--start of the popover images section of my site-->
+<div class="row">
+	<div class="col">
+		<h2 id="subheadings">Popular Bubble Tea drinks</h2>
+	</div>
+</div> <!--Closing div for subheading row-->
+
+<div class="row">
+	<div class="col">
+		<a data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Taro Milk Tea with Pearls" data-content="Creamy taro flavor with chewy pearls; a heavenly drink experience."> <img class="indexboba" src="images/indexboba/taro.png" alt="Taro Bubble Tea"></a>
+		<!-- Code for the popovers-->
+	</div>
+	<div class="col">
+		<a data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Matcha Milk Tea with Pearls" data-content="A refreshing blend of smooth matcha flavour with chewy pearls, perfect summer indulgence."> <img class="indexboba" src="images/indexboba/matcha.png" alt="Matcha Bubble Tea"></a>
+		<!-- Code for the popovers-->
+	</div>
+	<div class="col">
+		<a data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Dirty Milk Tea with Pearls" data-content="Indulge in the bold fusion of classic milk tea with espresso shot and chewy pearls."> <img class="indexboba" src="images/indexboba/dirtea.png" alt="Dirtea Bubble Tea"></a>
+		<!-- Code for the popovers-->
+	</div>
+	<div class="col">
+		<a data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Coffee Milk Tea with Pearls" data-content="Experience the harmonious union of two beloved beverages, complemented by delightful pearls for a sensory awakening."> <img class="indexboba" src="images/indexboba/coffee.png" alt="Coffee Bubble Tea"></a>
+		<!-- Code for the popovers-->
+	</div>
+</div> <!--Closing div for bubble tea row-->
+
+<br>
+
+<!--Footer-->
+<footer>
+<div class="row">
+	<div class="col-lg-3 col-sm-5" id="deezballsfooter">
+		<img src="images/assets/nowhitelogo.png" alt="Logo">
+	</div>
+	<div class="col-lg-6 col-sm-3">
+		<h5>Pages</h5>
+		<ul>
+			<li><a class="foot-link" href="index.html">Home</a></li>
+			<li><a class="foot-link" href="orders.html">Orders</a></li>
+			<li><a class="foot-link" href="useful.html">Useful Links</a></li>
+		</ul>
+	</div>
+	<div class="col-lg-3 col-sm-4 footericons">
+		<h5>Follow Us</h5>
+		<a href="https://www.facebook.com/" target="_blank">
+			<img src="images/system/facebook_icon_40x40.png" alt="Facebook Icon">
+		</a>
+		<a href="https://www.twitter.com/" target="_blank">
+			<img src="images/system/twitter_icon_40x40.png" alt="Twitter icon">
+		</a>
+		<a href="https://www.instagram.com/" target="_blank">
+			<img src="images/system/instagram_icon_40x40.png" alt="Instagram Icon">
+		</a>
+		<a href="https://www.tiktok.com/" target="_blank">
+			<img src="images/system/tiktok_icon_40x40.png" alt="TikTok Icon">
+		</a>
+		<a href="https://www.youtube.com" target="_blank">
+			<img src="images/system/youtube_icon_40x40.png" alt="Youtube Icon">
+		</a>
+	</div>
+</div>
+</footer>
+
+<br>
+
+</div> <!--closing div for container-->
+
+</body>
+
+</html>
