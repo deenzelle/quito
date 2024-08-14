@@ -12,7 +12,7 @@
 /* container css */
 .container {
 	background-color: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
+    border-radius: 5px;
 }
 
 /*Carousel css*/
@@ -337,7 +337,7 @@ font-family: Urbanist;
 footer{
 	background-color: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-	background-color: #e7dede;
+	background-color: #fcfbfb;
     padding: 20px 0;
     text-align: center;
     width: 100%;
@@ -398,3 +398,7 @@ html, body {
         margin-right: 170px;
     }
 }
+
+body  {
+	background-image: url("https://i.ibb.co/R0yn5WH/bobabg.jpg");
+  }
