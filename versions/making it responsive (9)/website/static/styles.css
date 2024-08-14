@@ -1,0 +1,406 @@
+.article-img{
+    height: 65px;
+    width: 65px;
+    margin: 16px;
+}
+
+.post-title{
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+/* container css */
+.container {
+	background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+}
+
+/*Carousel css*/
+.carousel {
+	background-color: rgba(0, 0, 0, 0.1);
+	border-radius: 15px;
+}
+
+.carousel-caption {
+	background-color: rgba(0, 0, 0, 0.4);
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+@media only screen and (max-width: 768px) {
+.carousel-caption {
+	background-color: rgba(0, 0, 0, 0.4);
+	width: 300px;
+	height: 110px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.carousel-caption h3 {
+font-family: Urbanist;
+font-weight: 600;
+font-size: 20px
+}
+
+.carousel-caption p {
+font-family: Urbanist;
+font-size: 18px
+}
+}
+
+@media only screen and (max-width: 492px) {
+.carousel-caption {
+	background-color: rgba(0, 0, 0, 0.4);
+	width: 250px;
+	height: 99px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.carousel-caption h3 {
+font-family: Urbanist;
+font-weight: 800;
+font-size: 17px
+}
+
+.carousel-caption p {
+font-family: Urbanist;
+font-size: 15px
+}
+}
+
+@media only screen and (max-width: 416px) {
+.carousel-caption {
+	background-color: rgba(0, 0, 0, 0.4);
+	width: 150px;
+	height: 89px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.carousel-caption h3 {
+font-family: Urbanist;
+font-weight: 800;
+font-size: 15px
+}
+
+.carousel-caption p {
+font-family: Urbanist;
+font-size: 13px;
+text-indent: -999px;
+}
+}
+
+.carousel-caption h3 {
+font-family: Urbanist;
+font-weight: 600;
+}
+
+.carousel-caption p {
+font-family: Urbanist;
+}
+
+.carousel-inner img {
+	width: 65%;
+	height: 55%;
+}
+
+.carousel-inner {
+	text-align: center;
+}
+
+/* .carousel-indicators */ 
+.carousel-control-next, .carousel-control-prev {
+    filter: invert(100%);
+}
+
+/* Navbar CSS CODE */
+.nav-link {
+	font-family: "Urbanist";
+	font-weight: 800;
+}
+
+.nav-link:hover {
+    color: rgb(181, 180, 180);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='black' stroke-width='2' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/*headings css*/
+#thiccheadings {
+	font-family: "Urbanist";
+    color: black;
+	font-weight: 700;
+	font-size: 55px;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center;
+}
+
+#notsothiccheadings {
+	font-family: "Urbanist";
+    color: black;
+	font-weight: 700;
+	font-weight: bold;;
+	font-style: italic;
+	text-align: center;
+}
+
+
+#subheadings {
+	font-family: "Urbanist";
+	font-weight: bold;
+	text-align: center;
+	font-style: italic;
+	font-weight: 700;
+	color: black;
+}
+
+/*MEDIA RULE THAT APPLIES TO TEXT MAINLY ON INDEX PAGE TO NOT MAKE IT AS BIG ON A SMALL SCREEN*/
+@media only screen and (max-width: 792px) {
+	#thiccheadings {
+	font-family: "Urbanist";
+    color: black;
+	font-weight: 700;
+	font-size: 35px;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center;
+}
+
+#notsothiccheadings {
+	font-family: "Urbanist";
+    color: black;
+	font-weight: 700;
+	font-size: 25px;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center;
+}
+
+#subheadings {
+	font-family: "Urbanist";
+	font-weight: bold;
+	text-align: center;
+	font-style: italic;
+	font-size: 30px;
+	font-weight: 700;
+	color: black;
+}
+
+#bodytextid {
+	font-family: "Urbanist";
+	font-size: 15px;
+	font-weight: 700;
+	text-align: justify;
+}
+
+}
+
+@media only screen and (max-width: 368px) {
+#thiccheadings {
+	font-family: "Urbanist";
+    color: black;
+	font-weight: 700;
+	font-size: 28px;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center;
+}
+
+#notsothiccheadings {
+	font-family: "Urbanist";
+    color: black;
+	font-weight: 700;
+	font-size: 17px;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center;
+}
+
+#subheadings {
+	font-family: "Urbanist";
+	font-weight: bold;
+	text-align: center;
+	font-style: italic;
+	font-size: 24px;
+	font-weight: 700;
+	color: black;
+}
+
+#bodytextid {
+	font-family: "Urbanist";
+	font-size: 13px;
+	font-weight: 700;
+	text-align: justify;
+}
+
+}
+
+/*body text css*/
+.bodytext p {
+	font-family: "Urbanist";
+	font-weight: 700;
+	font-size: 18px;
+	text-align: justify;
+}
+
+/*index page row css*/
+.indexboba {
+	height: 200px;
+	width: 200px
+}
+
+@media only screen and (max-width: 459px) {
+.indexboba {
+    height: 200px;
+    width: 200px;
+    margin-left: 98px;
+}
+}
+
+@media only screen and (max-width: 356px) {
+.indexboba {
+    height: 150px;
+    width: 150px;
+    margin-left: 80px;
+}
+}
+
+/*table css*/
+.tablephoto {
+	height: 200px;
+	width: 200px;
+}
+
+.tablerow {
+	text-align: center;
+	list-style-type: none;
+}
+
+.tabletext h5 {
+	font-weight: bold;
+	font-family: "Urbanist";
+	font-weight: 800;
+}
+
+.tabletext p {
+	font-weight: bold;
+	font-family: "Urbanist";
+	font-weight: 700;
+}
+
+/*footer css*/
+.col-lg-6 {
+    font-family: Urbanist;
+	font-weight: 700;
+}
+
+.footericons img{
+	width:40px;
+}
+.col-lg-6 h5 {
+    font-family: Urbanist;
+    font-weight: 800;
+}
+
+.foot-link {
+	font-family: "Urbanist";
+	font-weight: 800;
+	color: rgb(100, 100, 100)
+}
+
+.foot-link:hover {
+    color: rgb(181, 180, 180);
+}
+
+.col-lg-3 {
+    font-family: Urbanist;
+}
+
+
+
+.col-lg-3 h5 {
+    font-family: Urbanist;
+    font-weight: 800;
+}
+
+
+/* footer colour */
+footer{
+	background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+	background-color: #e7dede;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+}
+
+ul, ol {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+
+/*grid css*/
+.grid-container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 10px;
+	padding: 10px;
+}
+
+.grid-item {
+	padding: 10px;
+	text-align: center;
+}
+
+.grid-item img {
+	max-width: 75%;
+	max-height: 75%;
+	cursor: pointer;
+}
+
+@media only screen and (max-width: 900px) {
+.grid-container {
+	grid-template-columns: 1fr;
+}
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+}
+
+.logo {
+    width: 150px; /* Adjust the width as needed */
+    height: 50px; /* Adjust the height as needed */
+    background-image: url('https://i.ibb.co/qrLQ8Lt/logo.png');
+    background-size: contain; /* Or 'cover' depending on your needs */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.footer-logo {
+	width: 300px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+	margin-left: 115px;
+	margin-top: 24px;
+    background-image: url('https://i.ibb.co/88tXV7S/nowhitelogo.png');
+    background-size: contain; /* Or 'cover' depending on your needs */
+    background-repeat: no-repeat;
+    background-position: center;
+}
