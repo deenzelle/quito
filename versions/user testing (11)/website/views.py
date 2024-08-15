@@ -114,7 +114,7 @@ def delete_comment(comment_id):
 
 def save_picture(form_picture):
     # note to future denz: ALL FUTURE ITERATIONS OF QUITO BLOG MUST HAVE ITS OWN PATH
-    path = Path("versions\user testing (11)\website\static\profile_pics")
+    path = Path("versions/user testing (11)/static\profile_pics")
     random_hex = secrets.token_hex(8)
     _,f_ext = os.path.splitext(form_picture.filename)
     picture_fn = random_hex + f_ext
