@@ -1,47 +1,41 @@
-{% extends "template.html" %}{% block title %}Update Post{% endblock %}
-{% block content %}
+{% extends "template.html" %}{% block title %}Update Post{% endblock %} {% block
+content %}
 <!-- generic css -->
-<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-<br>
-<div class = "content-section">
-    <form method="POST" action ="">
-        {{ form.hidden_tag() }}
-        <fieldset class = "form-group">
-            <legend class="border-bottom mb-4">Update Post</legend>
-            <div class = "form-group">
-                {{ form.title.label(class = "form-control-label") }}
-
-                {% if form.title.errors %}
-                    {{ form.title(class = "form-control form_control-lg is-invalid") }}
-                    <div class = "invalid-feedback">
-                        {% for error in form.title.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {{ form.title(class = "form-control form_control-lg") }}
-                {% endif %}
-            </div>
-        
-            <div class = "form-group">
-                {{ form.text.label(class = "form-control-label") }}
-                
-                {% if form.text.errors %}
-                    {{ form.text(class = "form-control form_control-lg is-invalid") }}
-                    <div class = "invalid-feedback">
-                        {% for error in form.text.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {{ form.text(class = "form-control form_control-lg") }}
-                {% endif %}
-            </div>
-        </fieldset> 
-        <br>
-        <div class="form-group">
-            {{form.submit(class="btn btn-outline-info")}}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+<br />
+<div class="content-section">
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Update Post</legend>
+      <div class="form-group">
+        {{ form.title.label(class = "form-control-label") }} {% if
+        form.title.errors %} {{ form.title(class = "form-control form_control-lg
+        is-invalid") }}
+        <div class="invalid-feedback">
+          {% for error in form.title.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
         </div>
-    </form>
+        {% else %} {{ form.title(class = "form-control form_control-lg") }} {%
+        endif %}
+      </div>
+
+      <div class="form-group">
+        {{ form.text.label(class = "form-control-label") }} {% if
+        form.text.errors %} {{ form.text(class = "form-control form_control-lg
+        is-invalid") }}
+        <div class="invalid-feedback">
+          {% for error in form.text.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% else %} {{ form.text(class = "form-control form_control-lg") }} {%
+        endif %}
+      </div>
+    </fieldset>
+    <br />
+    <div class="form-group">{{form.submit(class="btn btn-outline-info")}}</div>
+  </form>
 </div>
 {% endblock %}
