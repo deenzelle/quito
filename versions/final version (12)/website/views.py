@@ -10,21 +10,25 @@ from . import db
 
 views = Blueprint("views", __name__)
 
+
 @views.route("/")
 @views.route("/home")
 def home():
     return render_template("home.html", user=current_user)
+
 
 @views.route("/")
 @views.route("/recommendations")
 def locations():
     return render_template("recommendations.html", user=current_user)
 
+
 @views.route("/blog")
 @login_required
 def blog():
     posts = Post.query.all()
     return render_template("blog.html", user=current_user, posts=posts)
+
 
 @views.route("/create-post", methods=['GET', 'POST'])
 @login_required
@@ -39,7 +43,8 @@ def create_post():
         flash('Post created!', category='success')
         return redirect(url_for('views.blog'))
 
-    return render_template('create_post.html', form = form, user=current_user)
+    return render_template('create_post.html', form=form, user=current_user)
+
 
 @views.route("/posts/<username>")
 @login_required
@@ -48,9 +53,10 @@ def posts(username):
     if not user:
         flash('No user with that username exists.', category='error')
         return redirect(url_for('views.home'))
-    
+
     posts = Post.query.filter_by(author=user.id).all()
     return render_template("posts.html", user=current_user, posts=posts, username=username)
+
 
 @views.route("/delete-post/<id>")
 @login_required
@@ -66,11 +72,13 @@ def delete_post(id):
         flash('Post deleted', category='success')
     return redirect(url_for('views.blog'))
 
+
 @views.route("/like-post/<post_id>", methods=['POST'])
 @login_required
 def like(post_id):
     post = Post.query.filter_by(id=post_id).first()
-    like = Like.query.filter_by(author=current_user.id, post_id=post_id).first()
+    like = Like.query.filter_by(
+        author=current_user.id, post_id=post_id).first()
     if not post:
         return jsonify({'error': 'Post does not exist.'}, 400)
     elif like:
@@ -82,6 +90,7 @@ def like(post_id):
         db.session.commit()
     return jsonify({"likes": len(post.likes), "liked": current_user.id in map(lambda x: x.author, post.likes)})
 
+
 @views.route("/create-comment/<post_id>", methods=['POST'])
 @login_required
 def create_comment(post_id):
@@ -91,13 +100,15 @@ def create_comment(post_id):
     else:
         post = Post.query.filter_by(id=post_id)
         if post:
-            comment = Comment(text=text, author=current_user.id, post_id=post_id)
+            comment = Comment(
+                text=text, author=current_user.id, post_id=post_id)
             db.session.add(comment)
             db.session.commit()
         else:
             flash('Post does not exist.', category='error')
     return redirect(url_for('views.blog'))
-    
+
+
 @views.route("/delete-comment/<comment_id>")
 @login_required
 def delete_comment(comment_id):
@@ -112,11 +123,12 @@ def delete_comment(comment_id):
 
     return redirect(url_for('views.blog'))
 
+
 def save_picture(form_picture):
     # note to future denz: ALL FUTURE ITERATIONS OF QUITO BLOG MUST HAVE ITS OWN PATH
     path = Path("versions/user testing (11)/static\profile_pics")
     random_hex = secrets.token_hex(8)
-    _,f_ext = os.path.splitext(form_picture.filename)
+    _, f_ext = os.path.splitext(form_picture.filename)
     picture_fn = random_hex + f_ext
     picture_path = os.path.join(path, picture_fn)
     output_size = (125, 125)
@@ -124,7 +136,8 @@ def save_picture(form_picture):
     i.thumbnail(output_size)
     i.save(picture_path)
     return picture_fn
-    
+
+
 @views.route("/account", methods=['GET', 'POST'])
 @login_required
 def account():
@@ -140,9 +153,11 @@ def account():
         return redirect(url_for('views.account'))
     elif request.method == 'GET':
         form.username.data = current_user.username
-        form.email.data  = current_user.email
-    image_file = url_for('static', filename = 'profile_pics/' + current_user.image_file)
-    return render_template('account.html', user = current_user, image_file = image_file, form = form)
+        form.email.data = current_user.email
+    image_file = url_for(
+        'static', filename='profile_pics/' + current_user.image_file)
+    return render_template('account.html', user=current_user, image_file=image_file, form=form)
+
 
 @views.route("/update-post/<id>", methods=['GET', 'POST'])
 @login_required
@@ -160,6 +175,7 @@ def update_post(id):
     elif request.method == 'GET':
         form.title.data = post.title
         form.text.data = post.text
-        image_file = url_for('static', filename='profile_pics/' + current_user.image_file)
+        image_file = url_for(
+            'static', filename='profile_pics/' + current_user.image_file)
 
-    return render_template('update_post.html', form = form, user=current_user, post=post, image_file=image_file)
+    return render_template('update_post.html', form=form, user=current_user, post=post, image_file=image_file)
