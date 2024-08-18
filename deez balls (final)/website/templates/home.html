@@ -1,0 +1,188 @@
+{% extends "template.html" %}{% block title %}Home{% endblock %} {% block
+content %}
+<!-- generic css -->
+<link rel="stylesheet" href="static/styles.css" />
+<!--Heading on index-->
+<h1 id="thiccheadings">Welcome to 'Bofa' Deez Balls</h1>
+<!--Carousel-->
+<div class="row">
+  <div class="col">
+    <div id="demo" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+        <li data-target="#demo" data-slide-to="3"></li>
+      </ul>
+      <!-- The slideshow -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="static/assets/img/boba/boba_colourful_straws.jpg"
+            alt="Boba with colourful straws"
+          />
+          <div class="carousel-caption">
+            <h3>Boba with Orange, Blue and Yellow Straws</h3>
+            <p>Colorful drink with fun straws.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <!--content for one carousel item-->
+          <img
+            src="static/assets/img/boba/boba_pob.jpg"
+            alt="Pink, Orange and Blue Boba"
+          />
+          <div class="carousel-caption">
+            <h3>Red, Orange and Blue flavoured Boba</h3>
+            <p>Colorful boba with fruity flavors.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <!--content for one carousel item-->
+          <img
+            src="static/assets/img/boba/colour_boba.jpg"
+            alt="Colourful Boba"
+          />
+          <div class="carousel-caption">
+            <h3>Pink, Green, Yellow and Blue Boba</h3>
+            <p>An aesthetic representation of diversity.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <!--content for one carousel item-->
+          <img src="static/assets/img/boba/taroboba.jpg" alt="Taro Boba" />
+          <div class="carousel-caption">
+            <h3>Purple Taro Milk Tea</h3>
+            <p>A royal potion, distilled essence.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Left and right controls -->
+      <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+    </div>
+  </div>
+</div>
+<!--closing div for carousel-->
+
+<br />
+
+<h2 id="subheadings">HELLO!</h2>
+
+<div class="bodytext">
+  <p id="bodytextid">
+    Welcome to Deez Balls, your ultimate destination for all things boba!
+    Whether you're a connoisseur of the perfect tea or just starting your boba
+    journey, our community is here to help you discover and share your favorite
+    boba orders and locations. Dive into our vibrant platform to explore
+    recommendations from fellow enthusiasts and check out a special section
+    featuring celebrity-recommended drinks and their ratings. Join us in
+    celebrating the world of boba and connect with others who share your
+    passion!
+  </p>
+</div>
+
+<br />
+
+<!--Subheading-->
+<h2 id="subheadings">What is Bubble Tea?</h2>
+
+<!--Body text in my site-->
+<div class="bodytext">
+  <p id="bodytextid">
+    Bubble tea is a delicious and unique drink that's loved by people of all
+    ages. Imagine sipping on a refreshing and creamy tea-based drink that's
+    bursting with fruity or floral flavors, while enjoying the chewy texture of
+    tapioca pearls or the refreshing crunch of fruit jelly. Bubble tea is a fun
+    and satisfying way to treat yourself and try something new. With so many
+    flavor combinations to choose from, you're sure to find a combination that
+    suits your taste buds perfectly. This site will be your cheatsheet into
+    falling in love with Boba as we show you the different popular drinks and
+    the secret bubble tea orders the celebrities don't want you to know!
+  </p>
+</div>
+<!--closing div for body text-->
+
+<br />
+
+<!--start of the popover images section of my site-->
+<div class="row">
+  <div class="col">
+    <h2 id="subheadings">Popular Bubble Tea drinks</h2>
+  </div>
+</div>
+<!--Closing div for subheading row-->
+
+<div class="row">
+  <div class="col">
+    <a
+      data-toggle="popover"
+      data-trigger="hover"
+      data-placement="bottom"
+      title="Taro Milk Tea with Pearls"
+      data-content="Creamy taro flavor with chewy pearls; a heavenly drink experience."
+    >
+      <img
+        class="indexboba"
+        src="static/assets/img/indexboba/taro.png"
+        alt="Taro Bubble Tea"
+    /></a>
+    <!-- Code for the popovers-->
+  </div>
+  <div class="col">
+    <a
+      data-toggle="popover"
+      data-trigger="hover"
+      data-placement="bottom"
+      title="Matcha Milk Tea with Pearls"
+      data-content="A refreshing blend of smooth matcha flavour with chewy pearls, perfect summer indulgence."
+    >
+      <img
+        class="indexboba"
+        src="static/assets/img/indexboba/matcha.png"
+        alt="Matcha Bubble Tea"
+    /></a>
+    <!-- Code for the popovers-->
+  </div>
+  <div class="col">
+    <a
+      data-toggle="popover"
+      data-trigger="hover"
+      data-placement="bottom"
+      title="Dirty Milk Tea with Pearls"
+      data-content="Indulge in the bold fusion of classic milk tea with espresso shot and chewy pearls."
+    >
+      <img
+        class="indexboba"
+        src="static/assets/img/indexboba/dirtea.png"
+        alt="Dirtea Bubble Tea"
+    /></a>
+    <!-- Code for the popovers-->
+  </div>
+  <div class="col">
+    <a
+      data-toggle="popover"
+      data-trigger="hover"
+      data-placement="bottom"
+      title="Coffee Milk Tea with Pearls"
+      data-content="Experience the harmonious union of two beloved beverages, complemented by delightful pearls for a sensory awakening."
+    >
+      <img
+        class="indexboba"
+        src="static/assets/img/indexboba/coffee.png"
+        alt="Coffee Bubble Tea"
+    /></a>
+    <!-- Code for the popovers-->
+  </div>
+</div>
+<!--Closing div for bubble tea row-->
+
+<br />
+<br />
+
+{% endblock %}

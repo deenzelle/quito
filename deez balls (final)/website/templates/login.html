@@ -1,0 +1,37 @@
+{% extends "template.html" %}{% block title %}Login{% endblock %} {% block
+content %}
+<form method="POST">
+  <br />
+  <h3 align="center">Login</h3>
+  <!-- This section includes a labeled input field for the user to enter their email address. 
+   The input field is styled with the "form-control" class, and a placeholder text "Enter Email" is provided. -->
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input
+      type="text"
+      id="email"
+      name="email"
+      class="form-control"
+      placeholder="Enter Email"
+    />
+    <br />
+    <!-- Similar to the email field, this section provides an input field for the user to enter their password. 
+     The field is labeled and styled with the "form-control" class, with a placeholder text "Enter Password". 
+     The input type is set to "password" to obscure the user's input. -->
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      class="form-control"
+      placeholder="Enter Password"
+    />
+    <br />
+    <div align="center">
+      <!-- The form concludes with a centered "Login" button, styled with the "btn btn-primary" class.
+        The content block and form are then closed, completing the login interface. -->
+      <button class="btn btn-primary" type="submit">Login</button>
+    </div>
+  </div>
+</form>
+{% endblock %}

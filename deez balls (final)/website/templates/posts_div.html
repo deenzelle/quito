@@ -1,0 +1,155 @@
+{% extends "template.html" %}{% block title %}Home{% endblock %} {% block
+content %}
+<!-- generic css -->
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+<h1 align="center">{% block header %}Posts{% endblock %}</h1>
+<!-- This section sets up the main content area, starting with a centered header "Posts."
+  A loop iterates through each post in the "posts" collection, creating a card for each. Inside the card, 
+  the post's author information is displayed, including their profile picture and username. -->
+<div id="posts">
+  {% for post in posts %}
+  <div class="card border-dark">
+    <div class="d-flex align-items-center">
+      <img
+        class="rounded-circle article-img"
+        src="{{ url_for('static', filename='profile_pics/' + post.user.image_file) }}"
+      />
+      <a href="/posts/{{post.user.username}}" class="ms-2"
+        >{{post.user.username}}</a
+      >
+    </div>
+    <!-- This block manages the like button and post actions. It shows the number of likes a post has, and checks if the current user has liked the post to display the appropriate thumbs-up icon. 
+     If the user is the author of the post, additional options to delete or update the post are provided via a dropdown menu. -->
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <div>
+        <span id="likes-count-{{post.id}}"> {{ post.likes|length }}</span>
+        {% if user.id in post.likes|map(attribute="author")|list %}
+        <i
+          class="fas fa-thumbs-up"
+          id="like-button-{{post.id}}"
+          onclick="like({{post.id}})"
+        ></i>
+        {% else %}
+        <i
+          class="far fa-thumbs-up"
+          id="like-button-{{post.id}}"
+          onclick="like({{post.id}})"
+        ></i>
+        {% endif %} {% if user.id == post.author %}
+        <div class="btn-group">
+          <button
+            type="button"
+            class="btn btn-sm btn-primary dropdown-toggle"
+            data-bs-toggle="dropdown"
+          ></button>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="/delete-post/{{post.id}}" class="dropdown-item"
+                >Delete</a
+              >
+            </li>
+            <li>
+              <a href="/update-post/{{post.id}}" class="dropdown-item"
+                >Update Post</a
+              >
+            </li>
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <!-- This section handles displaying the post's title and text, followed by a collapsible area for comments. 
+     If there are comments, a link is provided to toggle the comments section. 
+     Each comment includes the username of the commenter, the comment text, and the date it was created. 
+     Authors and the post owner can delete comments via a dropdown menu. -->
+    <div class="card-body">
+      <div class="card-text post-title">{{post.title}}</div>
+      <br />
+      <div class="card-text">{{post.text}}</div>
+      <br />
+      <div class="collapse" id="comments-{{post.id}}">
+        <div class="card">
+          <div class="card-body" id="comments-expanded-{{post.id}}">
+            {% for comment in post.comments %}
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <a href="/posts/{{comment.user.username}}"
+                  >{{comment.user.username}}</a
+                >: {{comment.text}}
+              </div>
+              <div>
+                <small class="text-muted"> {{comment.date_created}}</small>
+                {% if user.id == comment.author or user.id == post.author %}
+                <div class="btn-group">
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-primary dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                  ></button>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a
+                        href="/delete-comment/{{comment.id}}"
+                        class="dropdown-item"
+                        >Delete</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <p class="card-text">
+        {% if post.comments|length > 0 %}
+        <a data-bs-toggle="collapse" href="#comments-{{post.id}}" role="button">
+          <small>View {{post.comments|length}} Comments</small>
+        </a>
+        {% else %}
+        <small class="text-muted">No Comments</small>
+        {% endif %}
+      </p>
+      <!-- Below the comments section, there is a form for submitting new comments, with a text 
+       input field and a submit button. The card footer shows the date the post was created. 
+       This structure is repeated for each post in the loop. -->
+      <form
+        class="input-group mb-3"
+        method="POST"
+        action="/create-comment/{{post.id}}"
+      >
+        <input
+          type="text"
+          id="text"
+          name="text"
+          class="form-control"
+          placeholder="Comment something!"
+        />
+        <button type"submit" class="btn btn-primary">Comment</button>
+      </form>
+    </div>
+    <div class="card-footer text-muted">{{post.date_created}}</div>
+  </div>
+  <br />
+  {% endfor %}
+</div>
+
+<br>
+
+<!-- The page concludes with a centered button 
+ that links to the "Create a Post" page, allowing users to add new posts -->
+<div align="center">
+  <a href="/create-post">
+    <button type="button" class="btn btn-primary btn-lg">Create a Post</button>
+  </a>
+</div>
+
+<br />
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+  crossorigin="anonymous"
+></script>
+{% endblock %}
