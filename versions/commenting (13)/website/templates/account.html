@@ -1,5 +1,8 @@
 {% extends "template.html" %}{% block title %}Account{% endblock %} {% block
 content %}
+<!-- Within the "content" block, a section is created that includes the user's profile information. 
+ The user's profile image is displayed alongside their username and email. The `{{ current_user.username }}` and `{{ current_user.email }}` 
+ placeholders dynamically pull in the logged-in user's information from the backend. -->
 <div class="content-section">
   <br />
   <div class="media">
@@ -11,6 +14,9 @@ content %}
   </div>
   <form method="POST" action="" enctype="multipart/form-data">
     {{ form.hidden_tag() }}
+    <!-- This section begins the form for updating account details. 
+ The form handles file uploads (like profile pictures) and includes fields for username, email, and picture upload. 
+ If there are any validation errors for the username, they are displayed with an error class for styling. -->
     <fieldset class="form-group">
       <legend class="border-bottom mb-4">Account Information</legend>
       <div class="form-group">
@@ -25,7 +31,9 @@ content %}
         {% else %} {{ form.username(class = "form-control form_control-lg") }}
         {% endif %}
       </div>
-
+      <!-- The email and profile picture fields are handled similarly to the username field. 
+ Each field includes error handling, ensuring that any validation issues are clearly communicated to the user.
+ ends of the form with a submit button using a bootstrap class -->
       <div class="form-group">
         {{ form.email.label(class = "form-control-label") }} {% if
         form.email.errors %} {{ form.email(class = "form-control form_control-lg

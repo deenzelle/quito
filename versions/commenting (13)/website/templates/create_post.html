@@ -1,11 +1,17 @@
+<!-- This template extends a base layout called "template.html" and sets the page title to "Home". -->
 {% extends "template.html" %}{% block title %}Home{% endblock %} {% block
 content %}
 <br />
+<!-- The content block starts with a form that allows users to create a new post. 
+The form uses the POST method to submit data and includes a hidden tag for CSRF protection. 
+A fieldset groups the form elements under the "Create a post!" section, with a legend providing a title. -->
 <div class="content-section">
   <form method="POST" action="">
     {{ form.hidden_tag() }}
     <fieldset class="form-group">
       <legend class="border-bottom mb-4">Create a post!</legend>
+      <!-- This chunk handles the title input field for the post. It renders the label and the input box, checking for any validation errors. 
+      If errors are present, they are displayed, and the input box is styled with an "is-invalid" class to indicate the issue. -->
       <div class="form-group">
         {{ form.title.label(class = "form-control-label") }} {% if
         form.title.errors %} {{ form.title(class = "form-control form_control-lg
@@ -18,7 +24,8 @@ content %}
         {% else %} {{ form.title(class = "form-control form_control-lg") }} {%
         endif %}
       </div>
-
+      <!-- This part is similar to the title field but for the main text of the post. 
+       It handles rendering the label, input field, and any validation errors. If there are errors, they are displayed with appropriate styling. -->
       <div class="form-group">
         {{ form.text.label(class = "form-control-label") }} {% if
         form.text.errors %} {{ form.text(class = "form-control form_control-lg
@@ -33,6 +40,7 @@ content %}
       </div>
     </fieldset>
     <br />
+    <!-- ends of the program with a button with a bootstrap-class -->
     <div class="form-group">{{form.submit(class="btn btn-outline-info")}}</div>
   </form>
 </div>

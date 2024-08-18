@@ -1,41 +1,61 @@
-{% extends "template.html" %}{% block title %}Update Post{% endblock %} {% block
-content %}
-<!-- generic css -->
+{% extends "template.html" %} {% block title %}Update Post{% endblock %} {%
+block content %}
+<!-- Link to generic CSS stylesheet for custom styles -->
 <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+
 <br />
+
+<!-- Container for the content section -->
 <div class="content-section">
+  <!-- Form for updating a post -->
   <form method="POST" action="">
+    <!-- Include hidden tag for CSRF protection -->
     {{ form.hidden_tag() }}
+
+    <!-- Fieldset for grouping form elements -->
     <fieldset class="form-group">
       <legend class="border-bottom mb-4">Update Post</legend>
+
+      <!-- Form group for the title field -->
       <div class="form-group">
-        {{ form.title.label(class = "form-control-label") }} {% if
-        form.title.errors %} {{ form.title(class = "form-control form_control-lg
-        is-invalid") }}
+        {{ form.title.label(class="form-control-label") }} {% if
+        form.title.errors %}
+        <!-- If there are errors, show the title field with an error class -->
+        {{ form.title(class="form-control form_control-lg is-invalid") }}
         <div class="invalid-feedback">
           {% for error in form.title.errors %}
           <span>{{ error }}</span>
           {% endfor %}
         </div>
-        {% else %} {{ form.title(class = "form-control form_control-lg") }} {%
-        endif %}
+        {% else %}
+        <!-- If no errors, show the title field normally -->
+        {{ form.title(class="form-control form_control-lg") }} {% endif %}
       </div>
 
+      <!-- Form group for the text field -->
       <div class="form-group">
-        {{ form.text.label(class = "form-control-label") }} {% if
-        form.text.errors %} {{ form.text(class = "form-control form_control-lg
-        is-invalid") }}
+        {{ form.text.label(class="form-control-label") }} {% if form.text.errors
+        %}
+        <!-- If there are errors, show the text field with an error class -->
+        {{ form.text(class="form-control form_control-lg is-invalid") }}
         <div class="invalid-feedback">
           {% for error in form.text.errors %}
           <span>{{ error }}</span>
           {% endfor %}
         </div>
-        {% else %} {{ form.text(class = "form-control form_control-lg") }} {%
-        endif %}
+        {% else %}
+        <!-- If no errors, show the text field normally -->
+        {{ form.text(class="form-control form_control-lg") }} {% endif %}
       </div>
     </fieldset>
+
     <br />
-    <div class="form-group">{{form.submit(class="btn btn-outline-info")}}</div>
+
+    <!-- Submit button for the form -->
+    <div class="form-group">
+      {{ form.submit(class="btn btn-outline-info") }}
+    </div>
   </form>
 </div>
+
 {% endblock %}
